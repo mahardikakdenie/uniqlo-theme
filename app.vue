@@ -20,14 +20,8 @@
 			<!-- End Navabr -->
 
 			<!-- Content -->
-			<div class="relative z-10 overflow-scroll max-h-[800px] h-screen">
-				<div class="">
-					<div class="px-4">
-						<img src="https://im.uniqlo.com/global-cms/spa/resea7d1514e302459e7b5b29bb8f892bb4fr.jpg"
-							class="rounded-sm" alt="">
-					</div>
-				</div>
-				<product-list />
+			<div>
+				<NuxtPage />
 			</div>
 			<!-- End Content -->
 
@@ -44,7 +38,7 @@ useHead({
 		lang: 'en',
 	},
 	title: 'Uniqlo',
-	titleTemplate: title => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
+	titleTemplate: (title) => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
 	meta: [
 		{ name: 'description', content: 'A TMDB client built with Nuxt Image to show the potential of it ✨' },
 		{ property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
