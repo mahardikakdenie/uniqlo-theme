@@ -1,10 +1,11 @@
 <template>
 	<div class="container">
-		<div class="">
+		<div class="relative z-10">
+			<!-- Navbar -->
 			<nav class="bg-white px-2 py-4 shadow-sm">
 				<div class="flex justify-between">
-					<div>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/408px-UNIQLO_logo.svg.png" class="rounded-sm" width="25" alt="">
+					<div class="flex items-center">
+						<img src="/public/icons/logo.svg" class="rounded-sm" width="50" alt="">
 					</div>
 					<div class="flex items-center gap-2">
 						<div class="">
@@ -16,72 +17,56 @@
 					</div>
 				</div>
 			</nav>
+			<!-- End Navabr -->
 
-			<div class="">
-				<div class="p-0">
-					<div>
-						<img src="https://im.uniqlo.com/global-cms/spa/resea7d1514e302459e7b5b29bb8f892bb4fr.jpg" class="rounded-sm" alt="">
+			<!-- Content -->
+			<div class="relative z-10 overflow-scroll max-h-[800px] h-screen">
+				<div class="">
+					<div class="px-4">
+						<img src="https://im.uniqlo.com/global-cms/spa/resea7d1514e302459e7b5b29bb8f892bb4fr.jpg"
+							class="rounded-sm" alt="">
 					</div>
 				</div>
-				<div class="p-3">
-					<div>
-						<span class="font-bold text-md text-gray-400">
-							Live Station at store
-						</span>
-					</div>
-					<div>
-						<span class="text-sm text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, praesentium? A excepturi dolore, itaque impedit quae adipisci perspiciatis error quaerat earum. Inventore laudantium temporibus iure id quis harum obcaecati modi.</span>
-					</div>
-				</div>
+				<product-list />
 			</div>
-		</div>
-		<div class="fixed bottom-0 w-[100%] max-w-[480px] shadow-md rounded-sm pt-2 b-3 px-3">
-			<div class="flex justify-between">
-				<div>
-					<div class="flex justify-center">
-						<img src="/public/icons/home.svg" width="20" class="text-gray-300" alt="">
-					</div>
-					<span class="text-sm">Home</span>
-				</div>
-				<div>
-					<div class="flex justify-center">
-						<img src="/public/icons/category.svg" width="20" class="text-gray-300" alt="">
-					</div>
-					<span class="text-xs">Category</span>
-				</div>
-				<div>
-					<div class="flex justify-center">
-						<img src="/public/icons/wishlist.svg" width="20" class="text-gray-300" alt="">
-					</div>
-					<span class="text-xs">Wishlist</span>
-				</div>
-				<div>
-					<div class="flex justify-center">
-						<img src="/public/icons/notification.svg" width="20" class="text-gray-300" alt="">
-					</div>
-					<span class="text-xs">Notifikasi</span>
-				</div>
-				<div>
-					<div class="flex justify-center">
-						<img src="/public/icons/scan.svg" width="20" class="text-gray-300" alt="">
-					</div>
-					<span class="text-xs">Keanggotaan</span>
-				</div>
-			</div>
+			<!-- End Content -->
+
+			<!-- Floating Menus -->
+			<floating-menus />
+			<!-- End Floating Menus -->
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
+useHead({
+	htmlAttrs: {
+		lang: 'en',
+	},
+	title: 'Uniqlo',
+	titleTemplate: title => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
+	meta: [
+		{ name: 'description', content: 'A TMDB client built with Nuxt Image to show the potential of it ✨' },
+		{ property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
+		{ name: 'twitter:card', content: 'summary_large_image' },
+		{ name: 'twitter:site', content: '@nuxt_js' },
+		{ name: 'twitter:creator', content: '@nuxt_js' },
+	],
+	link: [
+		// Link untuk favicon
+		{ rel: 'icon', type: 'image/webp', href: '/icons/logo.svg' }
+	],
+})
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 .text-plus {
-  font-family: "Inconsolata", monospace;
-  font-optical-sizing: auto;
+	font-family: "Inconsolata", monospace;
+	font-optical-sizing: auto;
 }
+
 /* Global Styles */
 
 /* Reset default margin and padding */
@@ -89,7 +74,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	font-size: 16px; /* Move font-size to global */
+	/* Move font-size to global */
 	font-family: "Plus Jakarta Sans", sans-serif;
 }
 
@@ -97,9 +82,12 @@ body {
 .container {
 	max-width: 480px;
 	height: 100vh;
-	padding: 0 10px;
-	margin: 0 auto; /* Center the container */
-	box-sizing: border-box; /* Include padding and border in the element's total width and height */
+	margin: 0 auto;
+	width: auto;
+	overflow-x: hidden;
+	/* Center the container */
+	box-sizing: border-box;
+	/* Include padding and border in the element's total width and height */
 }
 
 /* Header Styles */
@@ -108,7 +96,8 @@ footer {
 	background-color: #333;
 	color: #fff;
 	padding: 20px;
-	text-align: center; /* Center align text */
+	text-align: center;
+	/* Center align text */
 }
 
 /* Main Content Styles */
@@ -123,11 +112,32 @@ article {
 	margin-bottom: 20px;
 }
 
-/* Media Queries for Mobile Devices */
-@media only screen and (max-width: 600px) {
-	/* Adjust container width for smaller screens */
-	.container {
-		padding: 0 10px;
-	}
+/* Untuk browser WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 1px; /* Lebar scrollbar */
 }
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Warna thumb scrollbar */
+  border-radius: 5px; /* Border radius thumb scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eee; /* Warna track scrollbar */
+}
+
+/* Untuk browser lainnya */
+body {
+  scrollbar-width: thin; /* Lebar scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #888; /* Warna thumb scrollbar */
+  border-radius: 5px; /* Border radius thumb scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #eee; /* Warna track scrollbar */
+}
+
 </style>
