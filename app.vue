@@ -20,7 +20,7 @@
 			<!-- End Navabr -->
 
 			<!-- Content -->
-			<div>
+			<div class="z-10 overflow-scroll mt-5">
 				<NuxtPage />
 			</div>
 			<!-- End Content -->
@@ -109,6 +109,7 @@ article {
 /* Untuk browser WebKit (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 1px; /* Lebar scrollbar */
+  height: 1px;
 }
 
 ::-webkit-scrollbar-thumb {

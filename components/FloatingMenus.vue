@@ -1,6 +1,6 @@
 <template>
     <div class="fixed bottom-0 w-[100%] max-w-[480px] shadow-lg rounded-sm border pt-4 pb-3 px-3 bg-white z-10">
-        <div class="flex justify-between px-2">
+        <div class="flex justify-between px-2 space-x-4">
             <div v-for="(menu, index) in floatingMenus" 
                 :key="index" 
                 class="p-2 rounded-lg hover:bg-gray-100 cursor-pointer" 
