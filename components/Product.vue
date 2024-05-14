@@ -1,8 +1,16 @@
 <template>
     <div class="p-2">
-        <div>
+        <div  class="relative">
             <img src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/467173/item/idgoods_68_467173.jpg?width=828"
                 class="rounded-md" alt="">
+            <div class="absolute top-[4px] right-2">
+                <button class="btn ml-2">
+                    <img src="/public/icons//cart.svg" alt="">
+                </button>
+                <button class="btn">
+                    <img src="/public/icons//wishlist.svg" alt="">
+                </button>
+            </div>
         </div>
         <div class="mt-2">
             <div class="flex justify-between">
@@ -13,14 +21,6 @@
                     <span class="border text-xs px-2 rounded-full ml-1">
                         Women
                     </span>
-                </div>
-                <div class="">
-                    <button class="btn">
-                        <img src="/public/icons//wishlist.svg" alt="">
-                    </button>
-                    <button class="btn ml-2">
-                        <img src="/public/icons//cart.svg" alt="">
-                    </button>
                 </div>
             </div>
             <div class="whitespace-nowrap text-ellipsis overflow-hidden">

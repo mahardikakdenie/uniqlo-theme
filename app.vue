@@ -20,7 +20,7 @@
 			<!-- End Navabr -->
 
 			<!-- Content -->
-			<div class="z-10 overflow-scroll mt-5">
+			<div class="z-10 overflow-y-auto-scroll mt-5">
 				<NuxtPage />
 			</div>
 			<!-- End Content -->
@@ -38,7 +38,7 @@ useHead({
 		lang: 'en',
 	},
 	title: 'Uniqlo',
-	titleTemplate: (title) => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
+	titleTemplate: (title) => title !== 'Nuxt Theme' ? `${title} · Nuxt Theme` : title,
 	meta: [
 		{ name: 'description', content: 'A TMDB client built with Nuxt Image to show the potential of it ✨' },
 		{ property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
