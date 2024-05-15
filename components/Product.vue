@@ -1,5 +1,5 @@
 <template>
-    <div class="p-2">
+    <div class="p-2 cursor-pointer" @click="$router.push('/product/2')">
         <div  class="relative">
             <img src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/467173/item/idgoods_68_467173.jpg?width=828"
                 class="rounded-md" alt="">
