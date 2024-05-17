@@ -26,7 +26,7 @@
 			<!-- End Content -->
 
 			<!-- Floating Menus -->
-			<floating-menus />
+			<floating-menus :type="floatMenusType" />
 			<!-- End Floating Menus -->
 		</div>
 	</div>
@@ -50,7 +50,23 @@ useHead({
 		// Link untuk favicon
 		{ rel: 'icon', type: 'image/webp', href: '/icons/logo.svg' }
 	],
-})
+});
+const route = useRoute();
+const floatMenusType = ref<'menus' | 'product-detail'>('menus');
+
+const init = (): void => {
+	floatMenusType.value = 'menus';
+	if (route?.path.includes('/product')) {
+		floatMenusType.value = 'product-detail';
+	}
+};
+
+watch(() => route?.path, (value) => {
+	if (value) {
+		init();
+	}
+});
+
 </script>
 
 <style lang="scss">

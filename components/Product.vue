@@ -14,12 +14,9 @@
         </div>
         <div class="mt-2">
             <div class="flex justify-between">
-                <div>
-                    <span class="border text-xs px-2 rounded-full">
-                        New
-                    </span>
-                    <span class="border text-xs px-2 rounded-full ml-1">
-                        Women
+                <div class="">
+                    <span v-for="(tag, index) in tags" :key="index" class="border text-xs px-2 ml-1 rounded-full">
+                        {{ tag }}
                     </span>
                 </div>
             </div>
@@ -38,9 +35,19 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-    img?: string;
-    name?: string;
-    price?: string;
-}>()
+import type { PropType } from 'vue';
+
+const props = defineProps({
+    img: {
+        type: String as PropType<string>,
+    },
+    name: {
+        type: String as PropType<string>,
+    },
+    price: {
+        type: String as PropType<string>,
+    },
+});
+
+const tags: Array<string> = ['Women', 'New'];
 </script>
