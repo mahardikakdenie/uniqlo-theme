@@ -26,8 +26,12 @@
 			<!-- End Content -->
 
 			<!-- Floating Menus -->
-			<floating-menus :type="floatMenusType" />
 			<!-- End Floating Menus -->
+			<floating-menus :type="floatMenusType" @action="action"  />
+			<ModalBottomModal 
+				v-if="showModal" 
+				@close="showModal = false"
+			/>
 		</div>
 	</div>
 </template>
@@ -51,6 +55,9 @@ useHead({
 		{ rel: 'icon', type: 'image/webp', href: '/icons/logo.svg' }
 	],
 });
+
+const showModal = ref<boolean>(false);
+
 const route = useRoute();
 const floatMenusType = ref<'menus' | 'product-detail'>('menus');
 
@@ -66,6 +73,16 @@ watch(() => route?.path, (value) => {
 		init();
 	}
 });
+
+const action = (key: string): void => {
+	if (key === 'cart') {
+		showModal.value = true;
+	}
+};
+
+onMounted(() => {
+	init();
+})
 
 </script>
 

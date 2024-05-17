@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed bottom-0 w-[100%] max-w-[480px] shadow-lg rounded-sm border pt-4 pb-3 px-3 bg-white z-10">
+    <div class="fixed bottom-0 w-[100%] max-w-[480px] shadow-lg rounded-sm border pt-4 pb-3 px-3 bg-white z-[10]">
         <div v-if="type === 'menus'" class="flex justify-between px-2">
             <div v-for="(menu, index) in floatingMenus" 
                 :key="index" 
@@ -14,11 +14,13 @@
             </div>
         </div>
         <div v-if="type === 'product-detail'" class="grid grid-cols-2 gap-2">
-            <button class="border w-full py-2 text-xs font-bold rounded-sm flex justify-center">
-                Masukan Keranjang
-            </button>
-            <button class="border w-full py-2 text-xs font-bold rounded-sm">
-                Beli Sekarang
+            <button 
+                v-for="button in buttonActions" 
+                :key="button.key" 
+                class="border w-full py-2 text-xs font-bold rounded-sm" 
+                @click="action(button?.key)"
+            >
+                {{ button?.label }}
             </button>
         </div>
     </div>
@@ -33,6 +35,11 @@ interface Menus {
     label: string;
 }
 
+interface I_BUTTONACTIONS {
+    key: string;
+    label: string;
+}
+
 const props = defineProps({
     type: {
         type: String as PropType<"menus" | "product-detail">,
@@ -41,7 +48,11 @@ const props = defineProps({
     },
 });
 
-const floatingMenus = ref<Menus[]>([
+const emits = defineEmits<{
+    (e: 'action', key: string): void
+}>();
+
+const floatingMenus = ref<Array<Menus>>([
     {
         img: '/icons/home.svg',
         key: 'home',
@@ -67,4 +78,19 @@ const floatingMenus = ref<Menus[]>([
         label: 'Membership'
     },
 ]);
+
+const buttonActions = ref<Array<I_BUTTONACTIONS>>([
+    {
+        key: 'cart',
+        label: 'Masukan Keranjang',
+    },
+    {
+        key: 'buy-now',
+        label: 'Beli Sekarang',
+    },
+]);
+
+const action = (key: string): void => {
+    emits('action', key);
+};
 </script>
