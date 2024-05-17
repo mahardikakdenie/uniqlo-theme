@@ -1,6 +1,6 @@
 <template>
 	<div class="overflow-y-scroll h-[768px]">
-		<div class="border p-2 border-b-0 mb-[100px]">
+		<div class="p-2 border-b-0 mb-12">
 			<div>
 				<span class="text-xs cursor-pointer">Kembali</span>
 			</div>
