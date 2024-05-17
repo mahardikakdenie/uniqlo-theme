@@ -18,16 +18,17 @@
 				</div>
 			</nav>
 			<!-- End Navabr -->
-
+			
 			<!-- Content -->
 			<div class="z-10 overflow-y-auto-scroll mt-5">
 				<NuxtPage />
 			</div>
 			<!-- End Content -->
-
+			
 			<!-- Floating Menus -->
 			<!-- End Floating Menus -->
 			<floating-menus :type="floatMenusType" @action="action"  />
+			<div v-if="showModal" class="absolute inset-0 bg-black opacity-50"></div>
 			<ModalBottomModal 
 				v-if="showModal" 
 				@close="showModal = false"
