@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute -bottom-[90px] p-3 bg-white z-[999] h-[350px] w-full rounded-md border">
+    <div class="fixed -bottom-[90px] p-3 bg-white z-[999] h-[50%] w-full rounded-md border">
         <div class="p-2 flex justify-between border-b">
             <div class="flex items-center">
                 <span class="font-bold text-sm">
