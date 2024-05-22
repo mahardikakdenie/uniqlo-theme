@@ -52,17 +52,37 @@
             
         </div>
         <div class="mt-2 pb-5 px-5 absolute bottom-0 right-0 flex gap-2 justify-between w-[inherit]">
-            <button class="border w-full  px-4 py-2 rounded-md text-xs font-bold hover:bg-slate-600 hover:text-white">
-                Masukan Keranjang
-            </button>
-            <button class="border w-full px-4 py-2 rounded-md text-xs font-bold hover:bg-slate-600 hover:text-white">
-                Lihat Keranjang
+            <button v-for="(btn, index) in btnActions" :key="index" class="border w-full  px-4 py-2 rounded-md text-xs font-bold hover:bg-slate-600 hover:text-white">
+                {{ btn.label }}
             </button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import type { PropType } from 'vue';
+
+
+interface BtnActions {
+    label: string;
+    key: string;
+};
+
+const props = defineProps({
+    btnActions: {
+        type: Array as PropType<Array<BtnActions>>,
+        default: () => ([
+            {
+                label: 'Masukan Keranjang',
+                key: 'cart',
+            },
+            {
+                label: 'Lihat Keranjang',
+                key: 'see-cart',
+            }
+        ])
+    }
+});
 
 const sizes = ref<Array<string>>([
     'XS', 'S', 'M', 'L', 'XL', 'XXL'
@@ -70,7 +90,7 @@ const sizes = ref<Array<string>>([
 
 // type-based
 const emit = defineEmits<{
-  (e: 'close'): void
+    (e: 'close'): void
 }>()
 
 const close = (): void => {

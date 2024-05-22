@@ -2,7 +2,7 @@
 	<div class="overflow-y-scroll h-[768px]">
 		<div class="p-2 border-b-0 mb-12">
 			<div>
-				<span class="text-xs cursor-pointer">Kembali</span>
+				<span class="text-xs cursor-pointer hover:underline" @click.once.stop="$router.back()">Kembali</span>
 			</div>
 			<div class="my-4">
 				<span class="font-bold text-md"
@@ -23,7 +23,7 @@
                     </li>
                 </ul>
             </div>
-			<div class="mt-4">
+			<div class="mt-4 px-2">
 				<div>
 					<span class="font-bold text-md">
 						Rp90000
