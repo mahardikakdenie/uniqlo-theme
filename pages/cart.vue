@@ -1,6 +1,9 @@
 <template>
     <div class="p-2">
         <div class="">
+            <div>
+                <span class="text-xs cursor-pointer" @click="$router?.back()">Kembali</span>
+            </div>
             <div v-for="i in 3" :key="i" class="p-2 flex justify-between mt-2 rounded-md bg-white">
                 <div class="p-1 flex items-center">
                     <img 

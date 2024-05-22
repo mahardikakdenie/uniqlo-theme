@@ -8,13 +8,15 @@
 						<img src="/public/icons/logo.svg" class="rounded-sm" width="50" alt="">
 					</div>
 					<div class="relative flex items-center gap-2">
-						<button class="">
-							<img src="/public/icons/cart.svg" width="25" alt="">
-						</button>
-						<div class="fixed top-1 bottom-0 ml-4">
-							<span class="text-xs border px-1 text-slate-600 border-slate-600 rounded-xl">
-								10
-							</span>
+						<div v-if="$route?.path !== '/cart'">
+							<button class="mr-2" @click="$router?.push('/cart')">
+								<img src="/public/icons/cart.svg" width="25" alt="">
+							</button>
+							<div class="absolute -top-4 left-4">
+								<span class="text-xs border px-1 text-slate-600 border-slate-600 rounded-xl">
+									10
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
