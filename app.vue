@@ -2,17 +2,19 @@
 	<div class="container bg-slate-100">
 		<div class="relative z-10">
 			<!-- Navbar -->
-			<nav class="bg-white px-2 py-4 shadow-sm">
+			<nav class="bg-white px-2 py-4 shadow-sm relative">
 				<div class="flex justify-between">
 					<div class="flex items-center">
 						<img src="/public/icons/logo.svg" class="rounded-sm" width="50" alt="">
 					</div>
-					<div class="flex items-center gap-2">
-						<div class="">
-							<img src="/public/icons/scan.svg" width="25" alt="">
-						</div>
-						<div class="">
+					<div class="relative flex items-center gap-2">
+						<button class="">
 							<img src="/public/icons/cart.svg" width="25" alt="">
+						</button>
+						<div class="fixed top-1 bottom-0 ml-4">
+							<span class="text-xs border px-1 text-slate-600 border-slate-600 rounded-xl">
+								10
+							</span>
 						</div>
 					</div>
 				</div>

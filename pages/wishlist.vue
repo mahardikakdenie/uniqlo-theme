@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div v-if="wishlistItems?.length > 0" class="border p-2">
+        <div v-if="wishlistItems?.length > 0" class="p-2">
+            <div>
+                <span class="text-md font-bold capitalize">
+                    wishlist
+                </span>
+            </div>
             <div>
                 <span class="text-xs">
                     {{ wishlistItems?.length }} Items
@@ -8,7 +13,7 @@
             </div>
             <div>
                 <ul>
-                    <li>
+                    <li class="bg-white">
                         <div class="flex justify-between">
                             <div class="p-2 relative">
                                 <img 
@@ -38,7 +43,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div>
+                            <div class="p-2">
                                 <button class="btn">
                                     <img src="/public/icons//wishlist-heart.svg" width="25" alt="">
                                 </button>
@@ -48,7 +53,7 @@
                 </ul>
             </div>
         </div>
-        <div v-if="wishlistItems?.length === 0" class="border p-2">
+        <div v-if="wishlistItems?.length === 0" class="p-2">
             <span class="text-xs font-bold">
                 O Items
             </span>
@@ -61,7 +66,7 @@
                 <small>Press the heart mark to add items on your wish list.</small>
             </div>
         </div>
-        <div class="border grid-cols-2 grid p-2 gap-2 mt-4">
+        <div class="grid-cols-2 grid p-2 gap-2 mt-4">
             <button class="border py-2 px-2 bg-slate-800 text-white font-bold hover:bg-slate-700">
                 Masuk
             </button>

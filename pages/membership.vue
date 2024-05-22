@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-start h-full mt-5">
         <div class="px-2">
-            <div class="border p-3 mb-3">
+            <div class="border p-3 mb-3 bg-white rounded-md">
                 <div>
                     <div>
                         <span class="text-sm font-bold">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="border p-3">
+            <div class="border p-3 bg-white rounded-md">
                 <div>
                     <div>
                         <span class="text-sm font-bold">
