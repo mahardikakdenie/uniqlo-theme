@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container bg-slate-100">
 		<div class="relative z-10">
 			<!-- Navbar -->
 			<nav class="bg-white px-2 py-4 shadow-sm">
